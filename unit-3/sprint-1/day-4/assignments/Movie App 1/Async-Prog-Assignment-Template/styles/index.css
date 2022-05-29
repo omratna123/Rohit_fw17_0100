@@ -1,0 +1,38 @@
+#slideshow{
+    width: 80%;
+    margin: auto;
+    height: 600px;
+    margin-top: 20px;
+    box-shadow: rgba(16, 16, 16, 0.2) 0px 7px 29px 0px;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+/* navbar */
+#cont{
+    width: 80%;
+    height: 50px;
+    box-shadow: rgba(16, 16, 16, 0.2) 0px 7px 29px 0px;
+    border: 1px solid rgb(186, 177, 177);
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    background-color: blue;
+    
+}
+#container{
+   width: 35%;
+  
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+a{
+   text-decoration: none;
+   color: black;
+   font-size: 25px;
+   font-weight: bold;
+}
+/* navbar end */
