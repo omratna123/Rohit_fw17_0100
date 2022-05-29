@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Show Result in the console</h1>
+<div><h1 class="skills1"></h1></div>
+</body>
+</html>
+<script>
+ var Amar={
+    name:"amar",
+    city:"Goa",
+    singer:function (){
+        console.log(this.name+" "+"is a Singer")
+    }
+}
+var Akbar={
+    name:"akbar",
+    city:"Mumbai",
+    chef:function (){
+        console.log(this.name+" "+"is a Chef")
+    }
+}
+var Anthony={
+    name:"anthony",
+    city:"Kashmir",
+    magician:function (){
+        console.log(this.name+" "+"is a Magician")
+    }
+}
+let x=Amar.singer.call(Amar);
+let y=Akbar.chef.call(Amar);
+ Anthony.magician.call(Amar)
+
+ let a=Amar.singer.call(Akbar);
+let b=Akbar.chef.call(Akbar);
+ Anthony.magician.call(Akbar)
+
+ let c=Amar.singer.call(Anthony);
+let d=Akbar.chef.call(Anthony);
+ Anthony.magician.call(Anthony)
+</script>
