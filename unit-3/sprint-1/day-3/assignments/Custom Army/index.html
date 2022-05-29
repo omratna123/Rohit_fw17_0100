@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Result Show In Console</h1>
+</body>
+</html>
+
+<script>
+
+        // push prototype
+    let arr2 = [1,2,3,4,5];
+    Array.prototype.mypush = function(a){
+        let newarr =[];
+         for(let i=0; i<this.length; i++){
+            newarr.push(this[i])
+         }
+         newarr.push(a)
+        return newarr;
+    }
+   let y =  arr2.mypush(6)
+   console.log(y)
+    
+
+
+            // pop prototype
+    let arr = [1,2,3,4,5];
+    Array.prototype.mypop = function(){
+        let newarr = [];
+        for(let i=0; i<this.length-1; i++)
+        {
+            newarr.push(this[i])
+        }
+        return newarr;
+    }
+    let x = arr.mypop();
+    console.log(x)
+
+
+                // top prototype
+       
+      let arr3 = [1,2,3,4,5];
+      Array.prototype.mytop = function(){
+
+        for(let i=0; i<this.length; i++)
+        {
+           return this[this.length-1]
+        }
+      }          
+        let z= arr3.mytop()
+         console.log(z)
+
+
+                // print prototype
+
+        let arr4 = [1,2,3,4];
+        Array.prototype.myprint = function(){
+            let newarr=[]
+            for(let i=0; i<this.length; i++)
+            {
+             newarr.push(this[i])
+            }
+            return newarr;
+        }   
+        var m = arr4.myprint();
+         console.log(m)  
+        
+        
+                   // reverse prototype
+       
+        let arr5 = [1,2,3,4,5] 
+        Array.prototype.myreverse = function(){
+            let reverse =[];
+            for(let i=this.length-1; i>=0; i--)
+            {
+                reverse.push(this[i])
+            }
+            return reverse;
+        }        
+        let n = arr5.myreverse();
+         console.log(n)  
+
+
+                    //size prototype
+
+         let arr6 = [1,2,3,4,5];
+         Array.prototype.mysize = function(){
+             let count=0
+             for(let i=0; i<this.length; i++)
+             {
+                 count++
+             }
+             return count;
+         } 
+         let p = arr6.mysize();
+          console.log(p)          
+
+</script>

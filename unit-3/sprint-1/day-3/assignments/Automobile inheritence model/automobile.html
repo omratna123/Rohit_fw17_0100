@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>automobile</title>
+</head>
+<body>
+    <div><h3>Result show in the console</h3></div>
+</body>
+</html>
+<script >
+// Object inheritance
+    let automobile = {
+        seater:"four seater",
+        fuel:"diesel",
+        type:"car",
+        gear:"Manual",
+        safety:"high"
+    }
+    let Swift =Object.create(automobile);//object.create()
+    Swift.name="Swift";
+    Swift.seat='4';
+    Swift.autopoilt=true
+    let Bulerro=Object.create(automobile);
+    Bulerro.name="Bulerro";
+    Bulerro.seat="4";
+    Bulerro.autopoilt=false
+    let Tata=Object.create(automobile);
+    Tata.name="Tata";
+    console.log(Swift)
+    console.log(Tata)
+    console.log(Bulerro)
+
+    // Constructor function
+    function auto(name){
+        this.name=name;
+        this.stephy="1 wheel";
+        this.model = "2022";
+        this.seater="4"
+    }
+    var Nexon=new auto("Tata Nexon");
+    var neno =new auto("Tata neno ");
+    var Safari =new auto("Tata Safari");
+console.log(Nexon)
+console.log(neno)
+console.log(Safari)
+   
+
+</script>
