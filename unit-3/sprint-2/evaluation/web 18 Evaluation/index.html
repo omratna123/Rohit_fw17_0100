@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      #navbar{
+        height: 50px;
+        width: 90%;
+        border: 1px solid black;
+        margin: auto;
+        margin-top: 20px;
+        display: flex;
+        /* justify-items: flex-start; */
+        justify-content: flex-end;
+        /* align-items: center; */
+        background-color: blue;
+      }
+      #navbar>div{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 40%;
+        font-size: 25px;
+        color: white;
+      }
+      #menu{
+         width: 90%;
+         display: grid;
+         grid-template-columns: repeat(4,1fr);
+         grid-template-rows: repeat(auto,300px);
+         gap: 20px;
+         
+         
+         padding-top: 20px;
+         margin:auto;
+      }
+      #menu>div>img{
+        width: 100%;
+        height: 200px;
+      }
+      #menu>div{
+        border: 1px solid black;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <!--Add navbar divs here-->
+      <!-- Link to bucket.html -->
+     <div>
+      <div>login</div>
+      <div>signup</div>
+      <div>product</div>
+      <div> <a href="bucket.html"> bucket </a></div>
+      <div id="mm">0
+        <!--Show total number of coffee added to bucket here, do not add anything only Total count. Not even "Count - 5" but like this "5" -->
+      </div>
+    </div>
+  </div>
+    <div id="menu">
+      <!--Show coffee list here in grid format-->
+      <!-- add an add to bucket button to each item, give it HTML id as 'add_to_bucket' -->
+    </div>
+  </body>
+</html>
+<script>
+    
+    const url= "https://masai-mock-api.herokuapp.com/coffee/menu";
+// function getData(){
+//     fetch(url)
+//   .then(function (res) {
+//     // Readable + Stream( data in chunks )
+//     // Collect the stream
+//     return res.json(); // res.collect()
+//   })
+//   .then(function (res) {
+//     console.log(res);
+//     appended(res.menu.data)
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   });
+// }
+
+     async function getData(){
+     
+        try {
+           let res= await fetch(url);
+           let coffee=await res.json();
+           console.log(coffee)
+           appended(coffee.menu.data)
+       } catch (error) {
+         console.log("error",error);
+       }
+     }
+     getData()
+
+     
+       var bucketA=JSON.parse(localStorage.getItem("bucket"))||[];
+       function appended(data){
+        document.querySelector("#mm").innerText=data.length;
+        // let menu = document.getElementById("menu");
+        data.forEach(function(elem){
+            var img=document.createElement("img");
+            var h3=document.createElement("h3");
+            var p= document.createElement("p");
+            var div=document.createElement("div")
+            var btn=document.createElement("button");
+
+            
+            img.src=elem.image;
+            h3.innerText=elem.title;
+            p.innerText=elem.price;
+
+            p.setAttribute("class","p")
+            h3.setAttribute("class","h3")
+            btn.innerText="add";
+            btn.style.background="red"
+            btn.style.color="white";
+            btn.addEventListener("click",function(){
+              addBucket(elem);
+            })
+            // p.setAttribute("class","p")
+
+            // menu.append(img,h3,p);
+    
+    div.append(img,h3,p,btn)
+    document.querySelector("#menu").append(div)
+         })
+       }
+       function addBucket(){
+         bucketA.push(elem);
+         localStorage.setItem("bucket",JSON.stringify(bucketA))
+       }
+       
+</script>
